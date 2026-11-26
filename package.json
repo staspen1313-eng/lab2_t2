@@ -1,0 +1,36 @@
+{
+  "name": "lab2_t1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "node --watch backend/src/server.ts",
+    "dev:web": "vite",
+    "build": "vue-tsc -b && tsc -p tsconfig.backend.json && vite build",
+    "typecheck": "vue-tsc -b && tsc -p tsconfig.backend.json",
+    "test": "node --test backend/test/gameService.test.mjs src/storage/gameStorage.test.mjs",
+    "start:api": "node backend/src/server.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.21.1",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "vue": "^3.5.46"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@vitejs/plugin-vue": "^6.0.11",
+    "@vue/tsconfig": "^0.9.1",
+    "concurrently": "^10.0.7",
+    "daisyui": "^5.8.3",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~6.0.3",
+    "vite": "^8.4.0",
+    "vue-tsc": "^3.3.14"
+  }
+}
